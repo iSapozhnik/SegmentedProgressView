@@ -1,0 +1,6 @@
+framework module Pods_SegmentedProgressView_Example {
+  umbrella header "Pods-SegmentedProgressView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

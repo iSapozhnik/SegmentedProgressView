@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SegmentedProgressView_Example' do
+  pod 'SegmentedProgressView', :path => '../'
+
+  target 'SegmentedProgressView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

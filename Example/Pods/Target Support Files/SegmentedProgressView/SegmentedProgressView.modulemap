@@ -1,0 +1,6 @@
+framework module SegmentedProgressView {
+  umbrella header "SegmentedProgressView-umbrella.h"
+
+  export *
+  module * { export * }
+}

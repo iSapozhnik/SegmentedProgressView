@@ -1,0 +1,16 @@
+PODS:
+  - SegmentedProgressView (0.1.0)
+
+DEPENDENCIES:
+  - SegmentedProgressView (from `../`)
+
+EXTERNAL SOURCES:
+  SegmentedProgressView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SegmentedProgressView: 938b027b1df2249211b2a71fb6c10bdf1db2d117
+
+PODFILE CHECKSUM: 631b21ba191d1241ab06a348207e688e3181fc2d
+
+COCOAPODS: 1.2.0
