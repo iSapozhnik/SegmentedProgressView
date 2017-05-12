@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SegmentedProgressView'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SegmentedProgressView.'
+  s.summary          = 'Simple Instagram-like segmented progress view with completion handler and different time interval for each segment'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -22,7 +22,7 @@ TODO: Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/isapozhnik/SegmentedProgressView'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://github.com/iSapozhnik/SegmentedProgressView/blob/master/Resources/img.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'isapozhnik' => 'sapozhnik.ivan@gmail.com' }
   s.source           = { :git => 'https://github.com/isapozhnik/SegmentedProgressView.git', :tag => s.version.to_s }
