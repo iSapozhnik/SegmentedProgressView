@@ -13,8 +13,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## TODO
 * add pause/resume animation feature
-* storybiard and xib support
+* storyboard and xib support
 * IBDesignable support
+* Autolayout support
 
 ## Installation
 
