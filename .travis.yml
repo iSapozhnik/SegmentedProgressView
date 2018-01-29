@@ -12,3 +12,8 @@ language: objective-c
 script:
 - set -o pipefail && xcodebuild test -workspace Example/SegmentedProgressView.xcworkspace -scheme SegmentedProgressView-Example -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.2' ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint --allow-warnings
+
+branches:
+  only:
+    - master
+    - develop
