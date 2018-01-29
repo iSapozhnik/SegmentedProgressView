@@ -8,14 +8,14 @@
 
 import UIKit
 
-public protocol ProgressBarDelegate {
+public protocol ProgressBarDelegate: class {
     
     func progressBar(willDisplayItemAtIndex index: Int)
     func progressBar(didDisplayItemAtIndex index: Int)
 
 }
 
-public protocol ProgressBarElementViewDelegate {
+public protocol ProgressBarElementViewDelegate: class {
     
     func progressBar(didFinishWithElement element: SegmentView)
 
@@ -23,7 +23,7 @@ public protocol ProgressBarElementViewDelegate {
 
 public class SegmentView: UIView {
     
-    var delegate: ProgressBarElementViewDelegate?
+    weak var delegate: ProgressBarElementViewDelegate?
     let item: ProgressItem
     
     var progressTintColor: UIColor?
