@@ -29,6 +29,8 @@ public class SegmentView: UIView {
     var progressTintColor: UIColor?
     var trackTintColor: UIColor?
     
+    private var emptyShape = CAShapeLayer()
+    
     init(withItem item: ProgressItem!) {
         self.item = item
         super.init(frame: .zero)
@@ -41,12 +43,14 @@ public class SegmentView: UIView {
     func drawEmpty() {
         
         let emptyColor = trackTintColor ?? .lightGray
-        
-        let emptyShape = CAShapeLayer()
-        emptyShape.frame = self.bounds
         emptyShape.backgroundColor = emptyColor.cgColor
-        emptyShape.cornerRadius = bounds.height / 2
         self.layer.addSublayer(emptyShape)
+    }
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        emptyShape.frame = self.bounds
+        emptyShape.cornerRadius = bounds.height / 2
     }
     
     func animate() {

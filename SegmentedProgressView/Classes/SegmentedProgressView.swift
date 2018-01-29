@@ -11,16 +11,16 @@ import Foundation
 public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     
     struct Config {
-        static let defaultItemSpace: Double = 6.0
+        static let defaultItemSpace: CGFloat = 6.0
     }
     
     public weak var delegate: ProgressBarDelegate?
     
-    override public var frame: CGRect {
-        didSet {
-            redraw()
-        }
-    }
+//    override public var frame: CGRect {
+//        didSet {
+//            redraw()
+//        }
+//    }
     
     public var progressTintColor: UIColor? {
         didSet {
@@ -34,7 +34,7 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
         }
     }
     
-    public var itemSpace: Double = Config.defaultItemSpace {
+    public var itemSpace: CGFloat = Config.defaultItemSpace {
         didSet {
             redraw()
         }
@@ -42,7 +42,7 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     
     public var items: [ProgressItem]? {
         didSet {
-            redraw()
+            draw()
         }
     }
     
@@ -53,11 +53,12 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     public init(withItems items: [ProgressItem]!) {
         self.items = items
         super.init(frame: .zero)
-        self.backgroundColor = .clear
+        setup()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setup()
     }
     
     override public func layoutSubviews() {
@@ -81,40 +82,66 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     
     // MARK: - Private
     
+    private var segmentsContainer: UIStackView!
+    
+    fileprivate func setup() {
+        setupViews()
+        setupConstraints()
+    }
+    
+    fileprivate func setupViews() {
+        self.backgroundColor = .clear
+
+        segmentsContainer = UIStackView()
+        segmentsContainer.spacing = itemSpace
+        addSubview(segmentsContainer)
+    }
+    
+    fileprivate func setupConstraints() {
+        segmentsContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            segmentsContainer.topAnchor.constraint(equalTo: self.topAnchor),
+            segmentsContainer.rightAnchor.constraint(equalTo: self.rightAnchor),
+            segmentsContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            segmentsContainer.leftAnchor.constraint(equalTo: self.leftAnchor)
+        ])
+    }
+    
     fileprivate func redraw() {
-        clear()
-        draw()
+//        clear()
+//        draw()
     }
     
     fileprivate func clear() {
         
-        elementViews.removeAll()
-        for view in subviews {
-            view.removeFromSuperview()
-        }
+//        elementViews.removeAll()
+//        for view in subviews {
+//            view.removeFromSuperview()
+//        }
     }
     
     fileprivate func draw() {
         guard let items = self.items, items.count > 0 else { return }
-        
-        var elementWidth = ((Double(bounds.width) + itemSpace) / Double(items.count))
-        elementWidth -= itemSpace
-        
-        if elementWidth <= 0 { return }
-        
-        var xOffset: Double = 0.0
 
+        var firstElement: SegmentView?
+        
         elementViews = items.map { item -> SegmentView in
             let elementView = SegmentView(withItem: item)
+
             elementView.progressTintColor = self.progressTintColor
             elementView.trackTintColor = self.trackTintColor
             elementView.delegate = self
-            elementView.frame = CGRect(x: xOffset, y: 0, width: elementWidth, height: Double(bounds.height))
             elementView.drawEmpty()
+            elementView.translatesAutoresizingMaskIntoConstraints = false
             
-            self.addSubview(elementView)
-            xOffset += elementWidth + itemSpace
+            segmentsContainer.addArrangedSubview(elementView)
             
+            if (firstElement != nil) {
+                elementView.widthAnchor.constraint(equalTo: firstElement!.widthAnchor).isActive = true
+            }
+            firstElement = elementView
+
             return elementView
         }
     }

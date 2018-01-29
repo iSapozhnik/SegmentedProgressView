@@ -35,27 +35,27 @@
 		023DDFB1EBA315DC7E0CF15D009EEE05 /* ProgressItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProgressItem.swift; sourceTree = "<group>"; };
 		0DBB931149EA9521701C2E041380FC0D /* SegmentedProgressView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SegmentedProgressView-prefix.pch"; sourceTree = "<group>"; };
 		121E6B07793315B97A12223BC9AE25E4 /* SegmentedProgressView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SegmentedProgressView.xcconfig; sourceTree = "<group>"; };
-		1E4DFCF7BD492EFE6735B2D13CBACB66 /* Pods-SegmentedProgressView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SegmentedProgressView_Tests.modulemap"; sourceTree = "<group>"; };
+		1E4DFCF7BD492EFE6735B2D13CBACB66 /* Pods-SegmentedProgressView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SegmentedProgressView_Tests.modulemap"; sourceTree = "<group>"; };
 		20E5A5AA8A8C7C7A27D8BE3DBBAD8875 /* SegmentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		22B3B271E2402A1E66FCDDD790EE7971 /* Pods-SegmentedProgressView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SegmentedProgressView_Example-dummy.m"; sourceTree = "<group>"; };
 		2CF6CD7002163BD8AB819328BB3A655B /* SegmentedProgressView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SegmentedProgressView-umbrella.h"; sourceTree = "<group>"; };
 		3E102B2A55E6E7692453B305F0CFBA7E /* Pods-SegmentedProgressView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SegmentedProgressView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		4B2C5799A04FD649F8D9EB2CD44E2071 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B315CFF97B036B65D1AB07841B55F05 /* SegmentedProgressView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SegmentedProgressView.framework; path = SegmentedProgressView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B315CFF97B036B65D1AB07841B55F05 /* SegmentedProgressView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SegmentedProgressView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		601C0F86644F3BCDED39A8BA252ED167 /* Pods-SegmentedProgressView_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SegmentedProgressView_Example-resources.sh"; sourceTree = "<group>"; };
-		61CB3C7E9EB5680B00EB1DB8A40A447C /* Pods_SegmentedProgressView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SegmentedProgressView_Tests.framework; path = "Pods-SegmentedProgressView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61CB3C7E9EB5680B00EB1DB8A40A447C /* Pods_SegmentedProgressView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegmentedProgressView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		634AE2E65F535B9AB77407B57B610572 /* SegmentedProgressView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SegmentedProgressView-dummy.m"; sourceTree = "<group>"; };
-		65237043C0E6E6C4C4859947B1930634 /* Pods_SegmentedProgressView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SegmentedProgressView_Example.framework; path = "Pods-SegmentedProgressView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65237043C0E6E6C4C4859947B1930634 /* Pods_SegmentedProgressView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegmentedProgressView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		74359BEB07713728C82C14AD54EB7716 /* Pods-SegmentedProgressView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SegmentedProgressView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		755BCE1E886E9613EDB73F6F271A1D39 /* SegmentedProgressView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SegmentedProgressView.modulemap; sourceTree = "<group>"; };
+		755BCE1E886E9613EDB73F6F271A1D39 /* SegmentedProgressView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SegmentedProgressView.modulemap; sourceTree = "<group>"; };
 		78D5DD52608F7E2D0391844663BC5A91 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796F03B64104E0ECAE5C9DCB12E63E75 /* Pods-SegmentedProgressView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SegmentedProgressView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9CC1A8428FA630E60ABDC192D7F74DC6 /* SegmentedProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SegmentedProgressView.swift; sourceTree = "<group>"; };
 		AE628C8B1B91EE2E9BEA335341594930 /* Pods-SegmentedProgressView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SegmentedProgressView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BD4078E40A52307C078AA28A65453173 /* Pods-SegmentedProgressView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SegmentedProgressView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		BD6FB4E2C5E215DD3FE02FE6B3739C12 /* Pods-SegmentedProgressView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SegmentedProgressView_Example.modulemap"; sourceTree = "<group>"; };
+		BD6FB4E2C5E215DD3FE02FE6B3739C12 /* Pods-SegmentedProgressView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SegmentedProgressView_Example.modulemap"; sourceTree = "<group>"; };
 		C7F4359DA9D8FC12C37687BFF656D30F /* Pods-SegmentedProgressView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SegmentedProgressView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		D6966CA274CAF030FB67327120EED577 /* Pods-SegmentedProgressView_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SegmentedProgressView_Tests-resources.sh"; sourceTree = "<group>"; };
 		DAD6E31BA647A0AFA48BE41B62FFED40 /* Pods-SegmentedProgressView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SegmentedProgressView_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,7 +176,6 @@
 				9CC1A8428FA630E60ABDC192D7F74DC6 /* SegmentedProgressView.swift */,
 				20E5A5AA8A8C7C7A27D8BE3DBBAD8875 /* SegmentView.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -226,7 +225,6 @@
 			children = (
 				7376AD9C39E8678C7DC3D9D5C8648C79 /* Classes */,
 			);
-			name = SegmentedProgressView;
 			path = SegmentedProgressView;
 			sourceTree = "<group>";
 		};
@@ -398,7 +396,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SegmentedProgressView_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SegmentedProgressView_Tests/Pods-SegmentedProgressView_Tests.modulemap";
@@ -434,7 +432,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SegmentedProgressView_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SegmentedProgressView_Example/Pods-SegmentedProgressView_Example.modulemap";
@@ -472,7 +470,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SegmentedProgressView_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SegmentedProgressView_Example/Pods-SegmentedProgressView_Example.modulemap";
@@ -533,7 +531,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -559,7 +557,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-SegmentedProgressView_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SegmentedProgressView_Tests/Pods-SegmentedProgressView_Tests.modulemap";
@@ -613,7 +611,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
@@ -640,7 +638,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SegmentedProgressView/SegmentedProgressView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SegmentedProgressView/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SegmentedProgressView/SegmentedProgressView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -674,7 +672,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SegmentedProgressView/SegmentedProgressView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SegmentedProgressView/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SegmentedProgressView/SegmentedProgressView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
