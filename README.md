@@ -26,7 +26,7 @@ it, simply add the following line to your Podfile:
 pod "SegmentedProgressView"
 ```
 
-## Author
+## Author 👨‍💻
 
 isapozhnik, sapozhnik.ivan@gmail.com
 
