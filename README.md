@@ -1,6 +1,6 @@
 # SegmentedProgressView
 
-[![CI Status](http://img.shields.io/travis/isapozhnik/SegmentedProgressView.svg?style=flat)](https://travis-ci.org/isapozhnik/SegmentedProgressView)
+[![CI Status](https://travis-ci.org/iSapozhnik/SegmentedProgressView.svg?branch=master)](https://travis-ci.org/isapozhnik/SegmentedProgressView)
 [![Version](https://img.shields.io/cocoapods/v/SegmentedProgressView.svg?style=flat)](http://cocoapods.org/pods/SegmentedProgressView)
 [![License](https://img.shields.io/cocoapods/l/SegmentedProgressView.svg?style=flat)](http://cocoapods.org/pods/SegmentedProgressView)
 [![Platform](https://img.shields.io/cocoapods/p/SegmentedProgressView.svg?style=flat)](http://cocoapods.org/pods/SegmentedProgressView)
