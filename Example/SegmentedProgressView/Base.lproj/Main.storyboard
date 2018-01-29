@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,19 +21,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWX-ya-e7d" customClass="SegmentedProgressView" customModule="SegmentedProgressView">
-                                <frame key="frameInset" minX="67" minY="122" width="240" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWX-ya-e7d" customClass="SegmentedProgressView" customModule="SegmentedProgressView">
+                                <rect key="frame" x="20" y="122" width="335" height="16"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="B7y-Pr-22O"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="u2D-ZB-vmK">
+                                <rect key="frame" x="16" y="241" width="343" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deh-EK-Y2T">
+                                        <rect key="frame" x="0.0" y="0.0" width="103.5" height="50"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="onPlay:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="alE-9S-1tx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gy5-wt-XRj">
+                                        <rect key="frame" x="119.5" y="0.0" width="104" height="50"/>
+                                        <state key="normal" title="Pause"/>
+                                        <connections>
+                                            <action selector="onPause:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NEB-LU-2G2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mR3-IS-cuP">
+                                        <rect key="frame" x="239.5" y="0.0" width="103.5" height="50"/>
+                                        <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="onStop:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Rvj-gk-awv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="deh-EK-Y2T" firstAttribute="width" secondItem="Gy5-wt-XRj" secondAttribute="width" id="A0D-Oc-kAx"/>
+                                    <constraint firstAttribute="height" constant="50" id="Cek-JP-cR1"/>
+                                    <constraint firstItem="mR3-IS-cuP" firstAttribute="width" secondItem="Gy5-wt-XRj" secondAttribute="width" id="UlK-vA-z9i"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="BWX-ya-e7d" secondAttribute="trailing" constant="20" id="0vg-py-8g6"/>
                             <constraint firstItem="BWX-ya-e7d" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="6p4-fE-PtG"/>
                             <constraint firstItem="BWX-ya-e7d" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="102" id="GP4-ku-Ova"/>
+                            <constraint firstItem="u2D-ZB-vmK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="Mgr-Ll-Psx"/>
+                            <constraint firstItem="u2D-ZB-vmK" firstAttribute="top" secondItem="BWX-ya-e7d" secondAttribute="bottom" constant="103" id="MiP-7j-CjQ"/>
+                            <constraint firstAttribute="trailing" secondItem="u2D-ZB-vmK" secondAttribute="trailing" constant="16" id="mQ7-lP-fSt"/>
                         </constraints>
                     </view>
                     <connections>

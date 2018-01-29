@@ -10,6 +10,10 @@ import Foundation
 
 public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     
+    struct Config {
+        static let defaultItemSpace: Double = 6.0
+    }
+    
     public weak var delegate: ProgressBarDelegate?
     
     override public var frame: CGRect {
@@ -30,7 +34,7 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
         }
     }
     
-    public var itemSpace: Double? {
+    public var itemSpace: Double = Config.defaultItemSpace {
         didSet {
             redraw()
         }
@@ -43,6 +47,8 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     }
     
     var elementViews: [SegmentView] = []
+    
+    // MARK: - Public
     
     public init(withItems items: [ProgressItem]!) {
         self.items = items
@@ -59,6 +65,22 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
         redraw()
     }
     
+    public func play() {
+        let elementView = elementViews[0]
+        delegate?.progressBar(willDisplayItemAtIndex: 0)
+        elementView.animate()
+    }
+    
+    public func pause() {
+        
+    }
+    
+    public func stop() {
+        clear()
+    }
+    
+    // MARK: - Private
+    
     fileprivate func redraw() {
         clear()
         draw()
@@ -73,39 +95,32 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     }
     
     fileprivate func draw() {
+        guard let items = self.items, items.count > 0 else { return }
         
-        let items = self.items ?? [ProgressItem(withDuration: 6) { print("finished 0") }]
-        
-        let horizontalSpace: Double = itemSpace ?? 6.0
-        
-        var elementWidth = ((Double(bounds.width) + horizontalSpace) / Double(items.count))
-        elementWidth -= horizontalSpace
+        var elementWidth = ((Double(bounds.width) + itemSpace) / Double(items.count))
+        elementWidth -= itemSpace
         
         if elementWidth <= 0 { return }
         
         var xOffset: Double = 0.0
-        
-        for item in items {
-            
+
+        elementViews = items.map { item -> SegmentView in
             let elementView = SegmentView(withItem: item)
             elementView.progressTintColor = self.progressTintColor
             elementView.trackTintColor = self.trackTintColor
             elementView.delegate = self
             elementView.frame = CGRect(x: xOffset, y: 0, width: elementWidth, height: Double(bounds.height))
             elementView.drawEmpty()
+            
             self.addSubview(elementView)
-            elementViews.append(elementView)
-            xOffset += elementWidth + horizontalSpace
+            xOffset += elementWidth + itemSpace
+            
+            return elementView
         }
-        
-        let elementView = elementViews[0]
-        delegate?.progressBar(willDisplayItemAtIndex: 0)
-        elementView.animate()
     }
     
     public func progressBar(didFinishWithElement element: SegmentView) {
-        
-        let elements = self.items ?? [ProgressItem(withDuration: 6) { print("finished 0") }]
+        guard let items = self.items else { return }
         
         if var index = elementViews.index(of: element) {
             
@@ -113,7 +128,7 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
             
             index += 1
             
-            if index < elements.count {
+            if index < items.count {
                 let elementView = elementViews[index]
                 delegate?.progressBar(willDisplayItemAtIndex: index)
                 elementView.animate()

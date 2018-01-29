@@ -18,15 +18,15 @@ class ViewController: UIViewController, ProgressBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for _ in 0...4 {
-            items.append(ProgressItem(withDuration: 3))
-        }
+//        for _ in 0...4 {
+//            items.append(ProgressItem(withDuration: 3))
+//        }
         
-        let elementWithCompletion = ProgressItem(withDuration: 3) {
-            print("elementWithCompletion finished")
-        }
+//        let elementWithCompletion = ProgressItem(withDuration: 3) {
+//            print("elementWithCompletion finished")
+//        }
         
-        items.append(elementWithCompletion)
+//        items.append(elementWithCompletion)
         
         var progressView = SegmentedProgressView(withItems: items)
         progressView.delegate = self
@@ -74,6 +74,17 @@ class ViewController: UIViewController, ProgressBarDelegate {
     func progressBar(didDisplayItemAtIndex index: Int) {
         print("didDisplayItemAtIndex \(index)")
     }
-
+    
+    @IBAction func onPlay(_ sender: Any) {
+        xibProgressView.play()
+    }
+    
+    @IBAction func onPause(_ sender: Any) {
+        xibProgressView.pause()
+    }
+    
+    @IBAction func onStop(_ sender: Any) {
+        xibProgressView.stop()
+    }
 }
 

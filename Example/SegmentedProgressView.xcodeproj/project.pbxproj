@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		22F5D368784ECF581715F99E /* Pods-SegmentedProgressView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedProgressView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SegmentedProgressView_Example/Pods-SegmentedProgressView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		3E8888A91F92AF7E4B6ED7F1 /* Pods_SegmentedProgressView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegmentedProgressView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		435A290189288F1CEAF9DE65 /* SegmentedProgressView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SegmentedProgressView.podspec; path = ../SegmentedProgressView.podspec; sourceTree = "<group>"; };
+		435A290189288F1CEAF9DE65 /* SegmentedProgressView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SegmentedProgressView.podspec; path = ../SegmentedProgressView.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SegmentedProgressView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SegmentedProgressView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,9 +42,9 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		64D29640E0FC33B06E978DC7 /* Pods-SegmentedProgressView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedProgressView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SegmentedProgressView_Example/Pods-SegmentedProgressView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		78200C1EF2CC7C175F0A217E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		78200C1EF2CC7C175F0A217E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		8703D334B7A324E13358E57D /* Pods-SegmentedProgressView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedProgressView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SegmentedProgressView_Tests/Pods-SegmentedProgressView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		BCE5EC3F848835671BA96C42 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BCE5EC3F848835671BA96C42 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		CEF319EAFAB0544D166C0CE5 /* Pods_SegmentedProgressView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegmentedProgressView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F33932E0E1373596BBCC77 /* Pods-SegmentedProgressView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedProgressView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SegmentedProgressView_Tests/Pods-SegmentedProgressView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -497,6 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SegmentedProgressView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -511,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SegmentedProgressView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
