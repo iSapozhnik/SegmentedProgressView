@@ -97,7 +97,6 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
         } else {
             currentItem?.play()
         }
-        
     }
     
     public func pause() {
