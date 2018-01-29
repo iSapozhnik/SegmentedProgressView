@@ -10,21 +10,22 @@ import UIKit
 
 public protocol ProgressBarDelegate: class {
     
-    func progressBar(willDisplayItemAtIndex index: Int)
-    func progressBar(didDisplayItemAtIndex index: Int)
+    func progressBar(willDisplayItemAtIndex index: Int, item: ProgressItem)
+    func progressBar(didDisplayItemAtIndex index: Int, item: ProgressItem)
 
 }
 
 public protocol ProgressBarElementViewDelegate: class {
     
-    func progressBar(didFinishWithElement element: SegmentView)
+    func progressBar(didFinishWithItem item: ProgressItem)
 
 }
 
-public class SegmentView: UIView {
+public class SegmentView: UIView, Animatable {
     
     weak var delegate: ProgressBarElementViewDelegate?
-    let item: ProgressItem
+    var item: ProgressItem
+//    var sate: ProgressState! = .none
     
     var progressTintColor: UIColor?
     var trackTintColor: UIColor?
@@ -67,7 +68,7 @@ public class SegmentView: UIView {
         
         CATransaction.begin()
         CATransaction.setCompletionBlock({
-            self.delegate?.progressBar(didFinishWithElement: self)
+            self.delegate?.progressBar(didFinishWithItem: self.item)
             self.item.handler?()
         })
         
@@ -81,5 +82,34 @@ public class SegmentView: UIView {
         
         filledShape.add(animation, forKey: animation.keyPath)
         CATransaction.commit()
+    }
+    
+    func play() {
+        if item.sate == ProgressState.paused {
+            resume()
+        } else {
+            self.item.sate = ProgressState.playing
+            self.animate()
+        }
+    }
+    
+    func pause() {
+        self.item.sate = ProgressState.paused
+        let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
+        layer.speed = 0.0
+        layer.timeOffset = pausedTime
+    }
+    
+    func stop() {
+        self.item.sate = ProgressState.finished
+    }
+    
+    private func resume() {
+        let pausedTime = layer.timeOffset
+        layer.speed = 1.0
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
+        let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        layer.beginTime = timeSincePause
     }
 }

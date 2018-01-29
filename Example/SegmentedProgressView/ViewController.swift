@@ -67,11 +67,11 @@ class ViewController: UIViewController, ProgressBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func progressBar(willDisplayItemAtIndex index: Int) {
+    func progressBar(willDisplayItemAtIndex index: Int, item: ProgressItem) {
         print("willDisplayItemAtIndex \(index)")
     }
     
-    func progressBar(didDisplayItemAtIndex index: Int) {
+    func progressBar(didDisplayItemAtIndex index: Int, item: ProgressItem) {
         print("didDisplayItemAtIndex \(index)")
     }
     

@@ -8,6 +8,26 @@
 
 import Foundation
 
+protocol Animatable {
+    func play()
+    func pause()
+    func stop()
+}
+
+extension ProgressItem: Animatable {
+    func play() {
+        self.associatedView?.play()
+    }
+    
+    func pause() {
+        self.associatedView?.pause()
+    }
+    
+    func stop() {
+        self.associatedView?.stop()
+    }
+}
+
 public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     
     struct Config {
@@ -67,13 +87,21 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     }
     
     public func play() {
-        let elementView = elementViews[0]
-        delegate?.progressBar(willDisplayItemAtIndex: 0)
-        elementView.animate()
+        if currentItem == nil {
+            guard let item = items?[0] else {
+                return
+            }
+            item.play()
+            delegate?.progressBar(willDisplayItemAtIndex: 0, item: item)
+            currentItem = item
+        } else {
+            currentItem?.play()
+        }
+        
     }
     
     public func pause() {
-        
+        currentItem?.pause()
     }
     
     public func stop() {
@@ -83,6 +111,7 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     // MARK: - Private
     
     private var segmentsContainer: UIStackView!
+    private var currentItem: ProgressItem?
     
     fileprivate func setup() {
         setupViews()
@@ -126,9 +155,8 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
 
         var firstElement: SegmentView?
         
-        elementViews = items.map { item -> SegmentView in
+        items.forEach { item in
             let elementView = SegmentView(withItem: item)
-
             elementView.progressTintColor = self.progressTintColor
             elementView.trackTintColor = self.trackTintColor
             elementView.delegate = self
@@ -141,24 +169,25 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
                 elementView.widthAnchor.constraint(equalTo: firstElement!.widthAnchor).isActive = true
             }
             firstElement = elementView
-
-            return elementView
+            item.associatedView = elementView
         }
+
     }
     
-    public func progressBar(didFinishWithElement element: SegmentView) {
+    public func progressBar(didFinishWithItem item: ProgressItem) {
         guard let items = self.items else { return }
         
-        if var index = elementViews.index(of: element) {
+        if var index = items.index(of: item) {
             
-            delegate?.progressBar(didDisplayItemAtIndex: index)
+            delegate?.progressBar(didDisplayItemAtIndex: index, item: item)
             
             index += 1
             
             if index < items.count {
-                let elementView = elementViews[index]
-                delegate?.progressBar(willDisplayItemAtIndex: index)
-                elementView.animate()
+                let nextItem = items[index]
+                delegate?.progressBar(willDisplayItemAtIndex: index, item: nextItem)
+                nextItem.play()
+                currentItem = nextItem
             }
         }
     }

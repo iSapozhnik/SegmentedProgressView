@@ -15,7 +15,7 @@ public enum ProgressState {
     case none
 }
 
-public class ProgressItem {
+public class ProgressItem: Equatable {
     
     public typealias CompletionHanlder = () -> ()
     
@@ -23,9 +23,15 @@ public class ProgressItem {
     let handler: CompletionHanlder?
     
     var sate: ProgressState! = .none
+    weak var associatedView: SegmentView?
     
     public init(withDuration duration: Double, handler completion: CompletionHanlder? = nil) {
         self.duration = duration
         self.handler = completion
+    }
+    
+    public static func ==(lhs: ProgressItem, rhs: ProgressItem) -> Bool {
+        return lhs.associatedView == rhs.associatedView &&
+            lhs.duration == rhs.duration
     }
 }
