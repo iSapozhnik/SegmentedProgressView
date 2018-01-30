@@ -22,12 +22,13 @@ public class ProgressItem: Equatable {
     let duration: Double!
     let handler: CompletionHanlder?
     
-    var sate: ProgressState! = .none
+    var state: ProgressState
     weak var associatedView: SegmentView?
     
-    public init(withDuration duration: Double, handler completion: CompletionHanlder? = nil) {
+    public init(withDuration duration: Double, handler completion: CompletionHanlder? = nil, state: ProgressState = .none) {
         self.duration = duration
         self.handler = completion
+        self.state = state
     }
     
     public static func ==(lhs: ProgressItem, rhs: ProgressItem) -> Bool {

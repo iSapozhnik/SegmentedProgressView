@@ -25,27 +25,33 @@ public class SegmentView: UIView, Animatable {
     
     weak var delegate: ProgressBarElementViewDelegate?
     var item: ProgressItem
-//    var sate: ProgressState! = .none
     
     var progressTintColor: UIColor?
     var trackTintColor: UIColor?
     
     private var emptyShape = CAShapeLayer()
+    private var filledShape = CAShapeLayer()
     
     init(withItem item: ProgressItem!) {
         self.item = item
         super.init(frame: .zero)
+        setupLayer()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupLayer() {
+        layer.addSublayer(emptyShape)
+        layer.addSublayer(filledShape)
+    }
+    
     func drawEmpty() {
         
         let emptyColor = trackTintColor ?? .lightGray
         emptyShape.backgroundColor = emptyColor.cgColor
-        self.layer.addSublayer(emptyShape)
+        
     }
     
     override public func layoutSubviews() {
@@ -61,15 +67,15 @@ public class SegmentView: UIView, Animatable {
         let startPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.height, height: bounds.height), cornerRadius: bounds.height / 2).cgPath
         let endPath = UIBezierPath(roundedRect: bounds, cornerRadius: bounds.height / 2)
         
-        let filledShape = CAShapeLayer()
         filledShape.path = startPath
         filledShape.fillColor = fillColor.cgColor
-        self.layer.addSublayer(filledShape)
         
         CATransaction.begin()
         CATransaction.setCompletionBlock({
-            self.delegate?.progressBar(didFinishWithItem: self.item)
-            self.item.handler?()
+            if self.item.state == ProgressState.playing {
+                self.delegate?.progressBar(didFinishWithItem: self.item)
+                self.item.handler?()
+            }
         })
         
         let animation = CABasicAnimation(keyPath: "path")
@@ -85,23 +91,28 @@ public class SegmentView: UIView, Animatable {
     }
     
     func play() {
-        if item.sate == ProgressState.paused {
+        if item.state == .playing { return }
+        
+        if item.state == ProgressState.paused {
             resume()
         } else {
-            self.item.sate = ProgressState.playing
             self.animate()
         }
+        item.state = ProgressState.playing
     }
     
     func pause() {
-        self.item.sate = ProgressState.paused
+        self.item.state = ProgressState.paused
         let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
         layer.speed = 0.0
         layer.timeOffset = pausedTime
     }
     
     func stop() {
-        self.item.sate = ProgressState.finished
+        item.state = ProgressState.finished
+        filledShape.path = nil
+        filledShape.removeAllAnimations()
+        drawEmpty()
     }
     
     private func resume() {

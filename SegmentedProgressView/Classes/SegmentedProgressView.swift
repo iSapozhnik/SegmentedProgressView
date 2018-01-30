@@ -92,8 +92,8 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
                 return
             }
             item.play()
-            delegate?.progressBar(willDisplayItemAtIndex: 0, item: item)
             currentItem = item
+            delegate?.progressBar(willDisplayItemAtIndex: 0, item: item)
         } else {
             currentItem?.play()
         }
@@ -105,6 +105,10 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     
     public func stop() {
         clear()
+        items?.forEach { item in
+            item.stop()
+        }
+        currentItem = nil
     }
     
     // MARK: - Private
