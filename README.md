@@ -1,6 +1,7 @@
 # SegmentedProgressView
 
 [![CI Status](https://travis-ci.org/iSapozhnik/SegmentedProgressView.svg?branch=master)](https://travis-ci.org/isapozhnik/SegmentedProgressView)
+[![CI Status](https://travis-ci.org/iSapozhnik/SegmentedProgressView.svg?branch=develop)](https://travis-ci.org/isapozhnik/SegmentedProgressView)
 [![Version](https://img.shields.io/cocoapods/v/SegmentedProgressView.svg?style=flat)](http://cocoapods.org/pods/SegmentedProgressView)
 [![License](https://img.shields.io/cocoapods/l/SegmentedProgressView.svg?style=flat)](http://cocoapods.org/pods/SegmentedProgressView)
 [![Platform](https://img.shields.io/cocoapods/p/SegmentedProgressView.svg?style=flat)](http://cocoapods.org/pods/SegmentedProgressView)
@@ -12,10 +13,10 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## TODO
-* add pause/resume animation feature
-* storyboard and xib support
-* IBDesignable support
-* Autolayout support
+- [] add pause/resume animation feature
+- [] Storyboard and xib support
+- [] IBDesignable support
+- [] Autolayout support
 
 ## Installation
 

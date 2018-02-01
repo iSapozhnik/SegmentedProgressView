@@ -10,7 +10,7 @@ import Foundation
 
 public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     
-    public var delegate: ProgressBarDelegate?
+    public weak var delegate: ProgressBarDelegate?
     
     override public var frame: CGRect {
         didSet {
