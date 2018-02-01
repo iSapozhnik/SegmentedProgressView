@@ -50,8 +50,11 @@ public class SegmentView: UIView, Animatable {
     func drawEmpty() {
         
         let emptyColor = trackTintColor ?? .lightGray
+        let fillColor = progressTintColor ?? .gray
+
         emptyShape.backgroundColor = emptyColor.cgColor
-        
+        filledShape.fillColor = fillColor.cgColor
+
     }
     
     override public func layoutSubviews() {
@@ -61,14 +64,10 @@ public class SegmentView: UIView, Animatable {
     }
     
     func animate() {
-        
-        let fillColor = progressTintColor ?? .gray
-        
         let startPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.height, height: bounds.height), cornerRadius: bounds.height / 2).cgPath
         let endPath = UIBezierPath(roundedRect: bounds, cornerRadius: bounds.height / 2)
         
         filledShape.path = startPath
-        filledShape.fillColor = fillColor.cgColor
         
         CATransaction.begin()
         CATransaction.setCompletionBlock({
@@ -109,6 +108,7 @@ public class SegmentView: UIView, Animatable {
     }
     
     func stop() {
+        resume()
         item.state = ProgressState.finished
         filledShape.path = nil
         filledShape.removeAllAnimations()
