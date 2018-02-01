@@ -8,26 +8,6 @@
 
 import Foundation
 
-protocol Animatable {
-    func play()
-    func pause()
-    func stop()
-}
-
-extension ProgressItem: Animatable {
-    func play() {
-        self.associatedView?.play()
-    }
-    
-    func pause() {
-        self.associatedView?.pause()
-    }
-    
-    func stop() {
-        self.associatedView?.stop()
-    }
-}
-
 public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     
     struct Config {
@@ -35,12 +15,6 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     }
     
     public weak var delegate: ProgressBarDelegate?
-    
-//    override public var frame: CGRect {
-//        didSet {
-//            redraw()
-//        }
-//    }
     
     public var progressTintColor: UIColor? {
         didSet {
