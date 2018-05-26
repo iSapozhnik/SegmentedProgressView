@@ -9,25 +9,23 @@
 import UIKit
 
 public protocol ProgressBarDelegate: class {
-    
     func progressBar(willDisplayItemAtIndex index: Int, item: ProgressItem)
     func progressBar(didDisplayItemAtIndex index: Int, item: ProgressItem)
-
 }
 
 public protocol ProgressBarElementViewDelegate: class {
-    
     func progressBar(didFinishWithItem item: ProgressItem)
-
 }
 
 public class SegmentView: UIView, Animatable {
-    
     weak var delegate: ProgressBarElementViewDelegate?
     var item: ProgressItem
     
     var progressTintColor: UIColor?
     var trackTintColor: UIColor?
+    
+    private var thumbView: SegmentThumbView!
+    private var thumbViewLeadingConstraint: NSLayoutConstraint!
     
     private var emptyShape = CAShapeLayer()
     private var filledShape = CAShapeLayer()
@@ -36,6 +34,7 @@ public class SegmentView: UIView, Animatable {
         self.item = item
         super.init(frame: .zero)
         setupLayer()
+        setupThumbView()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -48,19 +47,37 @@ public class SegmentView: UIView, Animatable {
     }
     
     func drawEmpty() {
-        
         let emptyColor = trackTintColor ?? .lightGray
         let fillColor = progressTintColor ?? .gray
 
         emptyShape.backgroundColor = emptyColor.cgColor
         filledShape.fillColor = fillColor.cgColor
-
     }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
         emptyShape.frame = self.bounds
         emptyShape.cornerRadius = bounds.height / 2
+    }
+    
+    func setupThumbView() {
+        let thumbView = SegmentThumbView(radius: 10)
+        addSubview(thumbView)
+        
+        self.thumbView = thumbView
+        setupConstraints()
+    }
+    
+    func setupConstraints() {
+        thumbView.translatesAutoresizingMaskIntoConstraints = false
+        
+        thumbViewLeadingConstraint = thumbView.leftAnchor.constraint(equalTo: self.leftAnchor)
+        NSLayoutConstraint.activate([
+            thumbView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            thumbView.heightAnchor.constraint(equalToConstant: thumbView.radius * 2),
+            thumbView.widthAnchor.constraint(equalToConstant: thumbView.radius * 2),
+            thumbViewLeadingConstraint
+        ])
     }
     
     func animate() {
@@ -74,19 +91,24 @@ public class SegmentView: UIView, Animatable {
             if self.item.state == ProgressState.playing {
                 self.delegate?.progressBar(didFinishWithItem: self.item)
                 self.item.handler?()
+                self.thumbView.hide()
             }
         })
         
-        let animation = CABasicAnimation(keyPath: "path")
-        animation.toValue = endPath.cgPath
-        animation.duration = self.item.duration
-        animation.repeatCount = 1
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        animation.fillMode = kCAFillModeBoth
-        animation.isRemovedOnCompletion = false
+        let fillAnimation = CABasicAnimation(keyPath: "path")
+        fillAnimation.toValue = endPath.cgPath
+        fillAnimation.duration = self.item.duration
+        fillAnimation.repeatCount = 1
+        fillAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        fillAnimation.fillMode = kCAFillModeBoth
+        fillAnimation.isRemovedOnCompletion = false
         
-        filledShape.add(animation, forKey: animation.keyPath)
-        CATransaction.commit()
+        filledShape.add(fillAnimation, forKey: fillAnimation.keyPath)
+
+        thumbViewLeadingConstraint.constant = bounds.width - 2 * thumbView.radius
+        UIView.animate(withDuration: item.duration, delay: 0.0, options: [.curveLinear], animations: {
+            self.layoutIfNeeded()
+        }, completion: nil)
     }
     
     func play() {
@@ -95,6 +117,7 @@ public class SegmentView: UIView, Animatable {
         if item.state == ProgressState.paused {
             resume()
         } else {
+            thumbView.show()
             self.animate()
         }
         item.state = ProgressState.playing
@@ -108,6 +131,13 @@ public class SegmentView: UIView, Animatable {
     }
     
     func stop() {
+        
+        thumbView.layer.removeAllAnimations()
+        thumbViewLeadingConstraint.constant = 0.0
+
+        thumbView.hide() { [weak self] in
+            self?.layoutIfNeeded()
+        }
         resume()
         item.state = ProgressState.finished
         filledShape.path = nil

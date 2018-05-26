@@ -39,17 +39,14 @@ public enum ProgressState {
 
 public class ProgressItem: Equatable {
     
-    public typealias CompletionHanlder = () -> ()
+    public typealias CompletionHanlder = () -> Void
     
     let duration: Double!
     let handler: CompletionHanlder?
     
     var state: ProgressState
-    var progress: Double = 0.0 {
-        didSet {
-            print("progress: \(progress)")
-        }
-    }
+    var progress: Double = 0.0
+    
     weak var associatedView: SegmentView?
     
     private var timer: Timer?

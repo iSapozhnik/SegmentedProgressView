@@ -19,6 +19,7 @@
 		E0D6EDF20B4F03C73D5F3390EEBBF1A3 /* Pods-SegmentedProgressView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F961A788D1A5D3D68D36B64A290ED9E7 /* Pods-SegmentedProgressView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EAB81993023E9D836250269C862A1271 /* Pods-SegmentedProgressView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B3B271E2402A1E66FCDDD790EE7971 /* Pods-SegmentedProgressView_Example-dummy.m */; };
 		F1807733609D1703B9E552CDF7EDB8E8 /* SegmentedProgressView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6CD7002163BD8AB819328BB3A655B /* SegmentedProgressView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF0CA0C620B9996900FFFE63 /* SegmentThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CA0C420B9955600FFFE63 /* SegmentThumbView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		F52EF94608BCE7B0B256893BD43956EA /* Pods-SegmentedProgressView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SegmentedProgressView_Tests-dummy.m"; sourceTree = "<group>"; };
 		F961A788D1A5D3D68D36B64A290ED9E7 /* Pods-SegmentedProgressView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SegmentedProgressView_Example-umbrella.h"; sourceTree = "<group>"; };
 		FA8D3F05BD7CE97B3CD61A9828B76166 /* Pods-SegmentedProgressView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SegmentedProgressView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		FF0CA0C420B9955600FFFE63 /* SegmentThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentThumbView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				023DDFB1EBA315DC7E0CF15D009EEE05 /* ProgressItem.swift */,
 				9CC1A8428FA630E60ABDC192D7F74DC6 /* SegmentedProgressView.swift */,
 				20E5A5AA8A8C7C7A27D8BE3DBBAD8875 /* SegmentView.swift */,
+				FF0CA0C420B9955600FFFE63 /* SegmentThumbView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -318,6 +321,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					83E203A0CED14A823BA0FC189C0DB959 = {
+						LastSwiftMigration = 0920;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -363,6 +371,7 @@
 				4223361A0C0EE8735B19F63CB0FA953A /* SegmentedProgressView-dummy.m in Sources */,
 				A83D7D1F7B38A3D7F6931BEB6F85DFF1 /* SegmentedProgressView.swift in Sources */,
 				65626E78B8BE6807A17605B79BB7129D /* SegmentView.swift in Sources */,
+				FF0CA0C620B9996900FFFE63 /* SegmentThumbView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD4078E40A52307C078AA28A65453173 /* Pods-SegmentedProgressView_Example.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -456,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F3AF31CE6C6498984C768BBE7516D69C /* Pods-SegmentedProgressView_Example.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

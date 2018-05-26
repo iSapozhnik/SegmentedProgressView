@@ -40,6 +40,12 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
         }
     }
     
+    public var showThumb: Bool = true {
+        didSet {
+            
+        }
+    }
+    
     var elementViews: [SegmentView] = []
     
     // MARK: - Public
@@ -62,9 +68,8 @@ public class SegmentedProgressView: UIView, ProgressBarElementViewDelegate {
     
     public func play() {
         if currentItem == nil {
-            guard let item = items?[0] else {
-                return
-            }
+            guard let item = items?[0] else { return }
+            
             item.play()
             currentItem = item
             delegate?.progressBar(willDisplayItemAtIndex: 0, item: item)
